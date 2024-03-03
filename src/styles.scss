@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@mixin flex-row() {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row-align($align) {
+  @include flex-row();
+  align-items: $align;
+}
+
+@mixin flex-column-align($align) {
+  @include flex-column();
+  align-items: $align;
+}
+
+@mixin flex-row-justify($justify) {
+  @include flex-row();
+  justify-content: $justify;
+}
+
+@mixin flex-column-justify($justify) {
+  @include flex-column();
+  justify-content: $justify;
+}
+
+@mixin flex-row-gap($gap) {
+  @include flex-row();
+  gap: $gap;
+}
+
+@mixin flex-column-gap($gap) {
+  @include flex-column();
+  gap: $gap;
+}
+
+@mixin flex-row-align-justify($align, $justify) {
+  @include flex-row-align($align);
+  @include flex-row-justify($justify);
+}
+
+@mixin flex-column-align-justify($align, $justify) {
+  @include flex-column-align($align);
+  @include flex-column-justify($justify);
+}
+
+@mixin flew-row-align-gap($align, $gap) {
+  @include flex-row-align($align);
+  @include flex-row-gap($gap);
+}
+
+@mixin flex-column-align-gap($align, $gap) {
+  @include flex-column-align($align);
+  @include flex-column-gap($gap);
+}
+
+@mixin flex-row-justify-gap($justify, $gap) {
+  @include flex-row-justify($justify);
+  gap: $gap;
+}
+
+@mixin flex-column-justify-gap($justify, $gap) {
+  @include flex-column-justify($justify);
+  gap: $gap;
+}
+
+@mixin flex-row-align-justify-gap($align, $justify, $gap) {
+  @include flex-row-align($align);
+  @include flex-row-justify($justify);
+  gap: $gap;
+}
+
+@mixin flex-column-align-justify-gap($align, $justify, $gap) {
+  @include flex-column-align($align);
+  @include flex-column-justify($justify);
+  gap: $gap;
+}

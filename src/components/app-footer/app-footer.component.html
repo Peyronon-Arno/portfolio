@@ -1,0 +1,32 @@
+<mat-card class="footer">
+  <mat-toolbar color="primary" class="footer__content">
+    <div class="footer__content__phone">
+      <span> Phone number : </span>
+      <i class="fas fa-phone"></i>
+      <span>{{ phone }}</span>
+    </div>
+    <div class="footer__content__email">
+      <span> Email : </span>
+      <i class="fas fa-envelope"></i>
+      <span>
+        <a class="footer__content__email__link" [href]="'mailto:' + email">
+          {{ email }}
+        </a>
+      </span>
+    </div>
+    <div class="footer__content__medias">
+      <span> Social medias : </span>
+      <div class="footer__content__medias__icons">
+        <ng-container *ngFor="let media of medias">
+          <a
+            class="footer__content__medias__icons__icon"
+            [href]="media.link"
+            target="_blank"
+          >
+            <i class="fab {{ media.icon }}"></i>
+          </a>
+        </ng-container>
+      </div>
+    </div>
+  </mat-toolbar>
+</mat-card>
