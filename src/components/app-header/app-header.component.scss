@@ -1,13 +1,13 @@
+@use "../../theme/utils";
+
 .header {
   height: 65px;
   &__content {
     height: 100%;
     &__row {
-      display: flex;
-      justify-content: space-between;
+      @include utils.flex-row-justify(space-between);
       &__buttons {
-        display: flex;
-        gap: 10px;
+        @include utils.flex-row-gap(10px);
       }
     }
   }

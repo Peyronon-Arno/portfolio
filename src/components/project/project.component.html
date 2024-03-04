@@ -1,1 +1,35 @@
-<p>project works!</p>
+<div class="project">
+  <h1 class="project__title">
+    {{ "KEY_PROJECTS_TITLE" | translate }}
+  </h1>
+  <div class="project__content">
+    <mat-card *ngFor="let project of projetcs" class="project__content__card">
+      <img class="project__content__card__img" [src]="project.imgUrl" />
+      <mat-card-title class="project__content__card__title">{{
+        project.name
+      }}</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content class="project__content__card__content">
+        <p>{{ project.description }}</p>
+        <div class="project__content__card__content__icons">
+          <span>{{ "KEY_PROJECTS_TECHNO_USED" | translate }} : </span>
+          <span
+            *ngFor="let icon of project.icons"
+            [matTooltip]="icon.tooltip"
+            class="project__content__card__content__icons__icon fab {{
+              icon.name
+            }}"
+          ></span>
+        </div>
+      </mat-card-content>
+      <button
+        class="project__content__card__button"
+        mat-raised-button
+        color="primary"
+        (click)="openDialog(project)"
+      >
+        {{ "KEY_SEE_MORE" | translate }}
+      </button>
+    </mat-card>
+  </div>
+</div>

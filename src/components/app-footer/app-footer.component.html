@@ -1,25 +1,24 @@
 <mat-card class="footer">
   <mat-toolbar color="primary" class="footer__content">
     <div class="footer__content__phone">
-      <span> Phone number : </span>
+      <span> {{ "KEY_PHONE_NUMBER" | translate }} : </span>
       <i class="fas fa-phone"></i>
       <span>{{ phone }}</span>
     </div>
     <div class="footer__content__email">
-      <span> Email : </span>
+      <span> {{ "KEY_EMAIL" | translate }} : </span>
       <i class="fas fa-envelope"></i>
-      <span>
-        <a class="footer__content__email__link" [href]="'mailto:' + email">
-          {{ email }}
-        </a>
-      </span>
+      <a class="footer__content__email__link" [href]="'mailto:' + email">
+        {{ email }}
+      </a>
     </div>
     <div class="footer__content__medias">
-      <span> Social medias : </span>
+      <span> {{ "KEY_SOCIAL_MEDIAS" | translate }} : </span>
       <div class="footer__content__medias__icons">
         <ng-container *ngFor="let media of medias">
           <a
             class="footer__content__medias__icons__icon"
+            matTooltip="{{ media.tooltip }}"
             [href]="media.link"
             target="_blank"
           >

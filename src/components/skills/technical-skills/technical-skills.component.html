@@ -1,0 +1,25 @@
+<h1 class="technical-skill__title">Compétences Techniques</h1>
+<div class="technical-skill__container">
+  <div
+    *ngFor="let skill of technicalSkills"
+    class="technical-skill__container__item"
+  >
+    <mat-card
+      class="technical-skill__container__item__card"
+      (click)="openModal(skill)"
+    >
+      <mat-card-content>
+        <mat-card-title class="technical-skill__container__item__card__title">
+          <i
+            class="technical-skill__container__item__card__title__icon fab fa-{{
+              skill.icon
+            }}"
+          ></i>
+          <span class="technical-skill__container__item__card__title__label">{{
+            skill.name
+          }}</span>
+        </mat-card-title>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+@use "../../../theme/utils";
+
+$padding: 15px;
+
+@mixin divider() {
+  margin-block: 10px;
+  background-color: rgb(41, 36, 52);
+}
+
+.project-details {
+  @include utils.flex-column-gap($padding);
+
+  &__header {
+    background-color: rgb(41, 36, 52);
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    padding: $padding;
+  }
+
+  &__content {
+    padding-inline: $padding;
+
+    &__main {
+      @include utils.flex-row-align-justify-gap(
+        center,
+        space-between,
+        $padding
+      );
+
+      &__image {
+        margin-right: $padding;
+        max-width: 400px;
+      }
+
+      &__content {
+        @include utils.flex-column-gap($padding);
+        align-self: flex-start;
+        &__description {
+          flex-grow: 1;
+          align-self: flex-start;
+          &__title {
+            font-size: 25px;
+          }
+
+          &__divider {
+            @include divider();
+          }
+        }
+        &__technologies {
+          &__title {
+            font-size: 25px;
+          }
+
+          &__divider {
+            @include divider();
+          }
+          &__icons {
+            @include utils.flex-row-gap(10px);
+
+            &__icon {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__footer {
+    align-self: flex-end;
+    padding: $padding;
+    width: 100%;
+    text-align: end;
+    border-top: 1px solid rgb(41, 36, 52);
+    &__button {
+      background-color: rgb(41, 36, 52);
+      color: white;
+    }
+  }
+}

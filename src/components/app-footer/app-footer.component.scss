@@ -1,3 +1,5 @@
+@use "../../theme/utils";
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -5,21 +7,16 @@
   height: 65px;
 
   &__content {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    @include utils.flex-row-align-justify(center, space-around);
     height: 100%;
+    flex-wrap: wrap;
 
     &__phone {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      @include utils.flex-row-align-gap(center, 10px);
     }
 
     &__email {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      @include utils.flex-row-align-gap(center, 10px);
 
       &__link {
         text-decoration: none;
@@ -28,12 +25,9 @@
     }
 
     &__medias {
-      display: flex;
-      gap: 10px;
+      @include utils.flex-row-gap(10px);
       &__icons {
-        display: flex;
-        gap: 15px;
-        align-items: center;
+        @include utils.flex-row-align-gap(center, 15px);
         &__icon {
           color: white;
           font-size: 25px;

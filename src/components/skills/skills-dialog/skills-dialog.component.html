@@ -1,0 +1,27 @@
+<div class="skills-dialog">
+  <div class="skills-dialog__header">
+    {{ data.name }}
+  </div>
+
+  <div class="skills-dialog__content">
+    <i
+      *ngIf="data.icon"
+      class="skills-dialog__content__icon fab fa-{{ data.icon }}"
+    ></i>
+    <div class="skills-dialog__content__main">
+      {{ data.description }}
+      <mat-divider></mat-divider>
+      <div class="skills-dialog__content__main__gauge">
+        {{ "KEY_GAUGE_COMPETENCES" | translate }} {{ data.level }}
+        {{ "KEY_POURCENT" | translate }}
+        <mat-progress-bar [value]="data.level"></mat-progress-bar>
+      </div>
+    </div>
+  </div>
+
+  <div class="skills-dialog__footer">
+    <button mat-button class="skills-dialog__footer__button" (click)="close()">
+      {{ "KEY_FERMER" | translate }}
+    </button>
+  </div>
+</div>

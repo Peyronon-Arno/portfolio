@@ -1,12 +1,15 @@
 <mat-card class="home">
-  <h1 class="home__title">Bienvenue sur mon portfolio !</h1>
+  <h1 class="home__title">{{ "KEY_WELCOME" | translate }}</h1>
 
   <mat-divider></mat-divider>
   <div class="home__content">
     <div>
       <div class="home__content__section">
-        <h2 class="home__content__subtitle">À propos de moi</h2>
+        <h2 class="home__content__subtitle">
+          {{ "KEY_ABOUT_ME" | translate }}
+        </h2>
 
+        <!-- TODO voir comment on gére les KEY pour avoir un contenu personalisable -->
         <p>
           Je m'appelle Arno Peyronon. Je suis étudiant en Master 1 Expert en
           Développement Web à Lyon.
@@ -38,7 +41,7 @@
           (click)="navigateTo(button.path)"
           class="home__content__button"
         >
-          {{ button.label }}
+          {{ button.label | translate }}
         </button>
       </div>
     </div>
