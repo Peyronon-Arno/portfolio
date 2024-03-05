@@ -1,0 +1,34 @@
+@use "../../../theme/utils";
+
+.technical-skill {
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__container {
+    @include utils.flex-row-gap(20px);
+    flex-wrap: wrap;
+    &__item {
+      max-width: calc(20% - 20px);
+      flex: 1 1 200px;
+      &__card {
+        cursor: pointer;
+        width: auto;
+
+        &__title {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          &__icon {
+            font-size: 50px;
+          }
+
+          &__label {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

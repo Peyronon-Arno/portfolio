@@ -1,0 +1,57 @@
+<div class="project-details">
+  <div class="project-details__header">
+    {{ data.name }}
+  </div>
+
+  <div class="project-details__content">
+    <div class="project-details__content__main">
+      <div class="project-details__content__main__image">
+        <img [src]="data.imgUrl" />
+      </div>
+
+      <div class="project-details__content__main__content">
+        <div class="project-details__content__main__content__description">
+          <span
+            class="project-details__content__main__content__description__title"
+            >{{ "KEY_DESCRIPTION" | translate }}</span
+          >
+          <mat-divider
+            class="project-details__content__main__content__description__divider"
+          ></mat-divider>
+          {{ data.longDescription }}
+        </div>
+        <div class="project-details__content__main__content__technologies">
+          <span
+            class="project-details__content__main__content__technologies__title"
+          >
+            {{ "KEY_PROJECTS_TECHNO_USED" | translate }} :
+          </span>
+          <mat-divider
+            class="project-details__content__main__content__technologies__divider"
+          ></mat-divider>
+          <div
+            class="project-details__content__main__content__technologies__icons"
+          >
+            <i
+              *ngFor="let icon of data.icons"
+              class="fab {{
+                icon.name
+              }} project-details__content__main__content__technologies__icons__icon"
+              matTooltip="{{ icon.tooltip }}"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-details__footer">
+    <button
+      mat-button
+      class="project-details__footer__button"
+      (click)="close()"
+    >
+      {{ "KEY_FERMER" | translate }}
+    </button>
+  </div>
+</div>

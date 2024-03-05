@@ -1,0 +1,5 @@
+@use "../../theme/utils";
+
+.skills {
+  @include utils.flex-column-gap(15px);
+}

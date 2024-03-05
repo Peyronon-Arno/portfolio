@@ -1,0 +1,47 @@
+@use "../../../theme/utils";
+
+$padding: 15px;
+
+@mixin divider() {
+  margin-block: 10px;
+  background-color: rgb(41, 36, 52);
+}
+
+.skills-dialog {
+  @include utils.flex-column-gap($padding);
+
+  &__header {
+    background-color: rgb(41, 36, 52);
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    padding: $padding;
+  }
+
+  &__content {
+    padding-inline: $padding;
+    @include utils.flex-row-align-gap(center, 20px);
+    &__icon {
+      font-size: 80px;
+    }
+    &__main {
+      flex: 1;
+      @include utils.flex-column-gap(10px);
+      &__gauge {
+        @include utils.flex-column-gap(10px);
+      }
+    }
+  }
+
+  &__footer {
+    align-self: flex-end;
+    padding: $padding;
+    width: 100%;
+    text-align: end;
+    border-top: 1px solid rgb(41, 36, 52);
+    &__button {
+      background-color: rgb(41, 36, 52);
+      color: white;
+    }
+  }
+}

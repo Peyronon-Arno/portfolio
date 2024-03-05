@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgForOf } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslatePipe } from '../../pipe/translate.pipe';
 
-type Language = 'en' | 'fr';
+export type Language = 'en' | 'fr';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,7 @@ type Language = 'en' | 'fr';
     MatToolbarModule,
     NgForOf,
     RouterModule,
+    TranslatePipe,
   ],
   templateUrl: './app-header.component.html',
   styleUrl: './app-header.component.scss',
@@ -23,29 +25,24 @@ type Language = 'en' | 'fr';
 export class AppHeaderComponent {
   protected readonly navItems: { path: string; label: string }[] = [
     {
-      label: 'Home',
+      label: 'KEY_HOME',
       path: '/home',
     },
     {
-      label: 'About',
-      path: '/about',
+      label: 'KEY_SKILLS',
+      path: '/skills',
     },
     {
-      label: 'Experiences',
+      label: 'KEY_EXPERIENCE',
       path: '/experiences',
     },
     {
-      label: 'Projects',
+      label: 'KEY_PROJECTS',
       path: '/projects',
     },
     {
-      label: 'Contact',
+      label: 'KEY_CONTACT',
       path: '/contact',
     },
   ];
-
-  // TODO gérer i18n + key etc...
-  protected changeLanguage(lang: Language): void {
-    console.log('changeLanguage', lang);
-  }
 }

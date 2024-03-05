@@ -1,19 +1,15 @@
 <mat-card class="header">
   <mat-toolbar color="primary" class="header__content">
     <mat-toolbar-row class="header__content__row">
-      <span>Peyronon Arno</span>
+      <span>{{ "KEY_NAME" | translate }}</span>
       <div class="header__content__row__buttons">
         <button
           *ngFor="let navItem of navItems"
           mat-button
           [routerLink]="navItem.path"
         >
-          {{ navItem.label }}
+          {{ navItem.label | translate }}
         </button>
-        <div>
-          <button mat-button (click)="changeLanguage('fr')">French</button>
-          <button mat-button (click)="changeLanguage('en')">English</button>
-        </div>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>

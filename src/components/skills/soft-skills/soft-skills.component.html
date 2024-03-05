@@ -1,0 +1,16 @@
+<h1 class="soft-skills__title">Compétences générales</h1>
+<div class="soft-skills__container">
+  <div *ngFor="let skill of softSkills" class="soft-skills__container__item">
+    <mat-card
+      class="soft-skills__container__item__card"
+      (click)="openModal(skill)"
+    >
+      <mat-card-content>
+        <mat-card-title class="soft-skills__container__item__card__title">
+          <i class="fab fa-{{ skill.icon }}"></i>
+          {{ skill.name }}
+        </mat-card-title>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
