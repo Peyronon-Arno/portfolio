@@ -27,7 +27,7 @@
     &__medias {
       @include utils.flex-row-gap(10px);
       &__icons {
-        @include utils.flex-row-align-gap(center, 15px);
+        @include utils.flex-row-align-gap(center, utils.$padding);
         &__icon {
           color: white;
           font-size: 25px;

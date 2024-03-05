@@ -26,10 +26,11 @@ import { environment } from '../environments/environment';
 export class AppComponent {
   protected readonly translate = inject(TranslateService);
   protected readonly destroyRef = inject(DestroyRef);
+  protected readonly http = inject(HttpClient);
 
   public constructor() {
     this.translate
-      .init(environment.defaultLang as Language)
+      .init(this.http, environment.defaultLang as Language)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {});
   }

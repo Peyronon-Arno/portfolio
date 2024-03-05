@@ -8,8 +8,6 @@ import { Language } from '../components/app-header/app-header.component';
   providedIn: 'platform',
 })
 export class TranslateService {
-  protected readonly http = inject(HttpClient);
-
   protected static readonly INTERPOLATION_REGEX = /{{\s?(\w+)\s?}}/g;
 
   protected translationsSubject: BehaviorSubject<Record<string, string>> =
@@ -18,21 +16,18 @@ export class TranslateService {
   protected translations$: Observable<Record<string, string>> =
     this.translationsSubject.asObservable();
 
-  public init(lang: Language = 'fr'): Observable<void> {
-    return this.http
-      .get<Record<string, string>>(`/assets/i18n/${lang}.json`)
-      .pipe(
-        map((translations) => {
-          this.translationsSubject.next(translations);
-        })
-      );
+  public init(http: HttpClient, lang: Language = 'fr'): Observable<void> {
+    return http.get<Record<string, string>>(`/assets/i18n/${lang}.json`).pipe(
+      map((translations) => {
+        this.translationsSubject.next(translations);
+      })
+    );
   }
 
   public instant(
     key: `KEY_${string}`,
     params?: Record<string, unknown>
   ): string;
-  // eslint-disable-next-line @typescript-eslint/unified-signatures
   public instant(key: string, params?: Record<string, unknown>): string;
   public instant(key: string, params?: Record<string, unknown>): string {
     const localTranslation = this.translationsSubject.value[key];

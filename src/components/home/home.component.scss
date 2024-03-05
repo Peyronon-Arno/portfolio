@@ -1,23 +1,25 @@
+@use "../../theme/utils";
+
 .home {
-  padding: 15px;
+  padding: utils.$padding;
   max-width: 1000px;
   &__title {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: utils.$padding;
   }
   &__content {
     margin: 0 auto;
     &__section {
-      margin-bottom: 20px;
+      margin-bottom: utils.$padding;
       &__subtitle {
-        margin-bottom: 10px;
+        margin-bottom: utils.$padding;
       }
     }
     &__buttons {
       display: flex;
       justify-content: space-around;
       &__button {
-        margin: 0 10px;
+        margin: 0 utils.$padding;
       }
     }
   }

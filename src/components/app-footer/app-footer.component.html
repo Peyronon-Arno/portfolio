@@ -1,5 +1,5 @@
 <mat-card class="footer">
-  <mat-toolbar color="primary" class="footer__content">
+  <mat-toolbar class="footer__content">
     <div class="footer__content__phone">
       <span> {{ "KEY_PHONE_NUMBER" | translate }} : </span>
       <i class="fas fa-phone"></i>
@@ -8,7 +8,7 @@
     <div class="footer__content__email">
       <span> {{ "KEY_EMAIL" | translate }} : </span>
       <i class="fas fa-envelope"></i>
-      <a class="footer__content__email__link" [href]="'mailto:' + email">
+      <a class="footer__content__email__link">
         {{ email }}
       </a>
     </div>

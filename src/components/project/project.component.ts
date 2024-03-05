@@ -1,13 +1,13 @@
-import { NgForOf } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { TranslatePipe } from '../../pipe/translate.pipe';
-import { PROJECTS } from './project.const';
-import { MatDialog } from '@angular/material/dialog';
-import { ProjetDialogComponent } from './projet-dialog/projet-dialog.component';
+import { NgForOf } from "@angular/common";
+import { Component, inject } from "@angular/core";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { TranslatePipe } from "../../pipe/translate.pipe";
+import { MatDialog } from "@angular/material/dialog";
+import { ProjetDialogComponent } from "./projet-dialog/projet-dialog.component";
+import { environment } from "../../environments/environment";
 
 export type ProjectIcon = {
   name: string;
@@ -23,10 +23,10 @@ export type Project = {
   longDescription: string;
 };
 @Component({
-  selector: 'app-project',
+  selector: "app-project",
   standalone: true,
-  templateUrl: './project.component.html',
-  styleUrl: './project.component.scss',
+  templateUrl: "./project.component.html",
+  styleUrl: "./project.component.scss",
   imports: [
     NgForOf,
     MatCardModule,
@@ -37,14 +37,14 @@ export type Project = {
   ],
 })
 export class ProjectComponent {
-  protected readonly projetcs: Project[] = PROJECTS;
+  protected readonly projetcs: Project[] = environment.projects;
   protected readonly matDialog = inject(MatDialog);
 
   protected openDialog(projet: Project): void {
     this.matDialog.open(ProjetDialogComponent, {
       data: projet,
       disableClose: true,
-      width: '600px',
+      width: "600px",
     });
   }
 }

@@ -1,1 +1,31 @@
-<p>experiences works!</p>
+<mat-card class="experiences">
+  <h1 class="experiences__title">Expériences</h1>
+  <div class="experiences__container">
+    <mat-card
+      *ngFor="let experience of experiences"
+      class="experiences__container__card"
+    >
+      <mat-card-header>
+        <div class="experiences__container__card__header">
+          <div class="experiences__container__card__header__title">
+            {{ experience.title }}
+          </div>
+          <div class="experiences__container__card__header__company">
+            {{ experience.company }}
+          </div>
+        </div>
+      </mat-card-header>
+      <mat-card-content class="experiences__container__card__content">
+        <div class="experiences__container__card__content__date">
+          {{ experience.date }}
+        </div>
+        <div class="experiences__container__card__content__description">
+          {{ experience.description }}
+        </div>
+        <div class="experiences__container__card__content__location">
+          {{ experience.location }}
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</mat-card>

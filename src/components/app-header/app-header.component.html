@@ -1,10 +1,11 @@
 <mat-card class="header">
   <mat-toolbar color="primary" class="header__content">
     <mat-toolbar-row class="header__content__row">
-      <span>{{ "KEY_NAME" | translate }}</span>
+      <span class="header__content__row__name">{{ title }}</span>
       <div class="header__content__row__buttons">
         <button
           *ngFor="let navItem of navItems"
+          class="header__content__row__buttons__button"
           mat-button
           [routerLink]="navItem.path"
         >

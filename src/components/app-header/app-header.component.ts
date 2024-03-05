@@ -1,15 +1,16 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { NgForOf } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { TranslatePipe } from '../../pipe/translate.pipe';
+import { Component, EventEmitter, Output } from "@angular/core";
+import { MatCardModule } from "@angular/material/card";
+import { MatButtonModule } from "@angular/material/button";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { NgForOf } from "@angular/common";
+import { RouterModule } from "@angular/router";
+import { TranslatePipe } from "../../pipe/translate.pipe";
+import { environment } from "../../environments/environment";
 
-export type Language = 'en' | 'fr';
+export type Language = "en" | "fr";
 
 @Component({
-  selector: 'app-header',
+  selector: "app-header",
   standalone: true,
   imports: [
     MatCardModule,
@@ -19,30 +20,35 @@ export type Language = 'en' | 'fr';
     RouterModule,
     TranslatePipe,
   ],
-  templateUrl: './app-header.component.html',
-  styleUrl: './app-header.component.scss',
+  templateUrl: "./app-header.component.html",
+  styleUrl: "./app-header.component.scss",
 })
 export class AppHeaderComponent {
-  protected readonly navItems: { path: string; label: string }[] = [
-    {
-      label: 'KEY_HOME',
-      path: '/home',
-    },
-    {
-      label: 'KEY_SKILLS',
-      path: '/skills',
-    },
-    {
-      label: 'KEY_EXPERIENCE',
-      path: '/experiences',
-    },
-    {
-      label: 'KEY_PROJECTS',
-      path: '/projects',
-    },
-    {
-      label: 'KEY_CONTACT',
-      path: '/contact',
-    },
-  ];
+  protected readonly title = environment.headerTitle;
+  protected readonly navItems: { path: string; label: string }[] = [];
+
+  public constructor() {
+    this.navItems.push({
+      label: "KEY_ABOUT",
+      path: "/home",
+    });
+    if (!environment.hideSkills) {
+      this.navItems.push({
+        label: "KEY_SKILLS",
+        path: "/skills",
+      });
+    }
+    if (!environment.hideExperience) {
+      this.navItems.push({
+        label: "KEY_EXPERIENCE",
+        path: "/experiences",
+      });
+    }
+    if (!environment.hideProjects) {
+      this.navItems.push({
+        label: "KEY_PROJECTS",
+        path: "/projects",
+      });
+    }
+  }
 }
