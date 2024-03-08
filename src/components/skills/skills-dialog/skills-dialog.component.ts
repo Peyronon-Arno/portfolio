@@ -23,7 +23,22 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 })
 export class SkillsDialogComponent {
   protected readonly matDialog = inject(MatDialog);
-  public constructor(@Inject(MAT_DIALOG_DATA) public data: Skills) {}
+
+  protected currentLevel = 0;
+
+  public constructor(@Inject(MAT_DIALOG_DATA) public data: Skills) {
+    this.animateProgressBar();
+  }
+
+  protected animateProgressBar(): void {
+    const interval = setInterval(() => {
+      if (this.currentLevel < this.data.level) {
+        this.currentLevel++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 10);
+  }
 
   protected close(): void {
     this.matDialog.closeAll();

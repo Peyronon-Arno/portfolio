@@ -10,27 +10,7 @@
         </h2>
 
         <!-- TODO voir comment on gére les KEY pour avoir un contenu personalisable -->
-        <p>
-          Je m'appelle Arno Peyronon. Je suis étudiant en Master 1 Expert en
-          Développement Web à Lyon.
-        </p>
-        <p>
-          Durant mes études, j'ai concrétisé des projets allant de la création
-          d'une Intelligence Artificielle à la réalisation de site web
-        </p>
-        <p>
-          Étant curieux et investi de nature, je suis un étudiant souhaitant
-          explorer de nombreux domaines dans l'informatique en général
-        </p>
-        <p>
-          En dehors de mes études, je développe une application mobile qui devra
-          être disponible sur Android et IOS pour un chorégraphe professionnel
-        </p>
-
-        <p>
-          Je développe également un site vitrine pour une photographe
-          professionnelle en utilisant les technologies simples du web
-        </p>
+        <div [innerHTML]="homeContent | safeHtml"></div>
       </div>
 
       <div class="home__content__buttons">

@@ -14,7 +14,6 @@ export class TranslatePipe implements PipeTransform {
     key: `KEY_${string}`,
     params?: Record<string, unknown>
   ): string;
-  // eslint-disable-next-line @typescript-eslint/unified-signatures
   public transform(key: string, params?: Record<string, unknown>): string;
   public transform(key: string, params?: Record<string, unknown>): string {
     return key ? this.translateService.instant(key, params) : '';

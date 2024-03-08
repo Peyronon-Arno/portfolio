@@ -1,3 +1,4 @@
+@use "./theme/utils";
 @import "@fortawesome/fontawesome-free/css/all.css";
 
 html,
@@ -11,4 +12,12 @@ body {
 
 .mdc-dialog__surface {
   overflow-y: hidden !important;
+}
+
+.mat-mdc-raised-button:not(:disabled) {
+  @include utils.button-color();
+}
+
+.mat-toolbar {
+  @include utils.header-footer-color();
 }

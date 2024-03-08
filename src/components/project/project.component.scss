@@ -1,14 +1,15 @@
 @use "../../theme/utils";
 
-$padding: 15px;
-
 :host {
   @include utils.flex-row-justify(center);
 }
 
 .project {
-  width: 70%;
-  @include utils.flex-column-gap($padding);
+  @include utils.flex-column-gap(utils.$padding);
+  @include utils.secondary-background-color();
+  width: 60%;
+  padding: utils.$padding;
+  height: fit-content;
 
   &__title {
     text-align: center;
@@ -16,7 +17,7 @@ $padding: 15px;
   }
 
   &__content {
-    @include utils.flex-row-justify-gap(center, $padding);
+    @include utils.flex-row-justify-gap(center, utils.$padding);
     padding-bottom: 50px;
     flex-wrap: wrap;
 
@@ -36,7 +37,7 @@ $padding: 15px;
       }
 
       &__content {
-        @include utils.flex-column-gap($padding);
+        @include utils.flex-column-gap(utils.$padding);
         padding: 10px;
 
         &__icons {
@@ -49,10 +50,10 @@ $padding: 15px;
       }
 
       &__button {
-        margin-bottom: 10px;
-        margin-right: 10px;
         width: auto;
-        align-self: flex-end;
+        position: absolute;
+        bottom: utils.$padding;
+        right: utils.$padding;
       }
     }
   }

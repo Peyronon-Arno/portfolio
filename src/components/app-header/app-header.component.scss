@@ -7,7 +7,14 @@
     &__row {
       @include utils.flex-row-justify(space-between);
       &__buttons {
-        @include utils.flex-row-gap(10px);
+        @include utils.flex-row-gap(utils.$padding);
+        &__button {
+          font-size: 20px;
+        }
+      }
+
+      &__name {
+        font-size: 20px;
       }
     }
   }
