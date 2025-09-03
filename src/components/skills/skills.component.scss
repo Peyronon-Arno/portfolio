@@ -1,7 +1,0 @@
-@use "../../theme/utils";
-
-.skills {
-  @include utils.flex-column-gap(utils.$padding);
-  @include utils.secondary-background-color();
-  padding: utils.$padding;
-}
